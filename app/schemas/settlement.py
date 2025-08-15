@@ -72,7 +72,8 @@ class SettlementAnalysisResult(BaseModel):
     overall_compliance: bool = Field(..., description="整体是否满足要求")
     normal_condition: Optional[ConditionAnalysis] = Field(None, description="正常工况结果")
     extreme_condition: Optional[ConditionAnalysis] = Field(None, description="极端工况结果")
-    
+    frequent_seismic_condition: Optional[ConditionAnalysis] = Field(None, description="多遇地震工况结果")
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -104,6 +105,20 @@ class SettlementAnalysisResult(BaseModel):
                         "layer_count": 15,
                         "p0kmax": 140.0,
                         "p0kmin": 60.0
+                    }
+                },
+                "frequent_seismic_condition": {
+                    "comprehensive_settlement_analysis": {
+                        "layer_thickness": 1.0,
+                        "layer_count": 15,
+                        "p0k": 105.0,
+                        "fak": 150.0
+                    },
+                    "comprehensive_inclination_analysis": {
+                        "layer_thickness": 1.0,
+                        "layer_count": 15,
+                        "p0kmax": 130.0,
+                        "p0kmin": 65.0
                     }
                 }
             }

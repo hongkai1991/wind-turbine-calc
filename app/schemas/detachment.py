@@ -9,13 +9,15 @@ class AllowedDetachmentArea(BaseModel):
     """允许脱开面积参数"""
     normal: float = Field(default=0.0, ge=0.0, le=1.0, alias="normal", description="正常工况允许脱开面积百分比(0.0-1.0)")
     extreme: float = Field(default=0.25, ge=0.0, le=1.0, alias="extreme", description="极端工况允许脱开面积百分比(0.0-1.0)")
+    frequent_seismic: float = Field(default=0.15, ge=0.0, le=1.0, alias="frequentSeismic", description="多遇地震工况允许脱开面积百分比(0.0-1.0)")
 
     class Config:
         populate_by_name = True
         json_schema_extra = {
             "example": {
                 "normal": 0.0,
-                "extreme": 0.25
+                "extreme": 0.25,
+                "frequent_seismic": 0.25
             }
         }
 
@@ -53,7 +55,8 @@ class DetachmentAreaAnalysisResult(BaseModel):
     overall_compliance: bool = Field(..., description="整体是否符合规定")
     normal_condition: DetachmentAreaResult = Field(..., description="正常工况脱开面积验算结果")
     extreme_condition: DetachmentAreaResult = Field(..., description="极端工况脱开面积验算结果")
-    
+    frequent_seismic_condition: DetachmentAreaResult = Field(..., description="多遇地震工况脱开面积验算结果")
+
     class Config:
         json_schema_extra = {
             "example": {

@@ -1,5 +1,6 @@
 import sys
 import os
+import uvicorn
 # 将项目根目录添加到Python路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -62,9 +63,6 @@ def create_app() -> FastAPI:
 app = create_app()
 
 if __name__ == "__main__":
-    import uvicorn
-    from app.core.config import get_settings
-    
     settings = get_settings()
     uvicorn.run(
         "app.main:app",

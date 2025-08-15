@@ -166,6 +166,8 @@ class AntiOverturningAnalysisResult(BaseModel):
     overall_compliance: bool = Field(..., description="整体是否满足")
     normal_condition: AntiOverturningSingleConditionResult = Field(..., description="正常工况抗倾覆验算结果")
     extreme_condition: AntiOverturningSingleConditionResult = Field(..., description="极端工况抗倾覆验算结果")
+    frequent_seismic_condition: AntiOverturningSingleConditionResult = Field(..., description="多遇地震工况抗倾覆验算结果")
+    rare_seismic_condition: AntiOverturningSingleConditionResult = Field(..., description="罕遇地震工况抗倾覆验算结果")
     
     class Config:
         json_schema_extra = {
@@ -227,6 +229,8 @@ class AntiSlidingAnalysisResult(BaseModel):
     overall_compliance: bool = Field(..., description="整体是否满足")
     normal_condition: AntiSlidingSingleConditionResult = Field(..., description="正常工况抗滑移验算结果")
     extreme_condition: AntiSlidingSingleConditionResult = Field(..., description="极端工况抗滑移验算结果")
+    frequent_seismic_condition: AntiSlidingSingleConditionResult = Field(..., description="多遇地震工况抗滑移验算结果")
+    rare_seismic_condition: AntiSlidingSingleConditionResult = Field(..., description="罕遇地震工况抗滑移验算结果")
     
     class Config:
         json_schema_extra = {

@@ -1,0 +1,27 @@
+version: '3'
+services:
+  wind-turbine-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wind-turbine-api:v1.0.5
+    container_name: wind-turbine-api
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./app/logs:/workspace/app/logs
+    networks:
+      - wind-turbine-api-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/"]
+      interval: 1h
+      timeout: 10s
+      retries: 3
+
+networks:
+  wind-turbine-api-network:
+    driver: bridge

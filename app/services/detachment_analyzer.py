@@ -270,6 +270,8 @@ class DetachmentAnalyzer:
                 normal_calc = calc
             elif load_case == "极端工况":
                 extreme_calc = calc
+            elif load_case == "多遇地震工况":
+                frequent_seismic_calc=calc
         
         # 分析正常工况
         normal_result = None
@@ -294,15 +296,27 @@ class DetachmentAnalyzer:
         else:
             logger.warning("未找到极端工况计算结果")
             extreme_result = self._create_default_result("极端工况", allowed_detachment_area.get("extreme", 0.25), "未找到极端工况数据")
-        
+
+        # 分析多遇地震工况
+        frequent_seismic_result = None
+        if frequent_seismic_calc:
+            frequent_seismic_result = self.analyze_single_condition_from_detailed_calc(
+                "多遇地震工况",
+                frequent_seismic_calc,
+                allowed_detachment_area.get("frequent_seismic", 0.25)
+            )
+        else:
+            logger.warning("未找到多遇地震工况计算结果")
+            frequent_seismic_result = self._create_default_result("多遇地震工况", allowed_detachment_area.get("frequent_seismic", 0.25), "未找到多遇地震工况数据")
         # 判断整体符合性
-        overall_compliance = normal_result.is_compliant and extreme_result.is_compliant
-        
+        overall_compliance = normal_result.is_compliant and extreme_result.is_compliant and frequent_seismic_result.is_compliant
+
         logger.info(f"脱开面积验算分析完成: 整体符合={overall_compliance}")
         
         return DetachmentAreaAnalysisResult(
             normal_condition=normal_result,
             extreme_condition=extreme_result,
+            frequent_seismic_condition=frequent_seismic_result,
             overall_compliance=overall_compliance
         )
     

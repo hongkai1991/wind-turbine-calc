@@ -149,10 +149,6 @@ class ComprehensiveCalculationRequest(BaseModel):
     stiffnessRequirements: StiffnessRequirements = Field(..., description="刚度要求参数")
     allowedDetachmentArea: AllowedDetachmentArea = Field(..., description="允许脱开面积参数")
     
-    def to_original_format(self) -> tuple:
-        """转换为原有格式以便与现有服务兼容"""
-        return self.geometry, self.material, self.soilLayers, self.designParameters, self.stiffnessRequirements
-    
     def get_tower_base_load_request(self) -> TowerBaseLoadRequest:
         """获取塔筒底部荷载计算请求对象"""
         return TowerBaseLoadRequest(

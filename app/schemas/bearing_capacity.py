@@ -46,6 +46,7 @@ class BearingCapacityAnalysisResult(BaseModel):
     bearing_capacity_characteristic: BearingCapacityCharacteristic = Field(..., description="地基承载力特征值对象")
     normal_condition: BearingCapacityCondition = Field(..., description="正常工况验算结果")
     extreme_condition: BearingCapacityCondition = Field(..., description="极端工况验算结果")
+    frequent_seismic_condition: BearingCapacityCondition = Field(..., description="多遇地震工况验算结果")
 
     class Config:
         json_schema_extra = {
