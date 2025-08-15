@@ -1,0 +1,177 @@
+{
+    "geometry": {
+      "baseRadius": 11.5,
+      "columnRadius": 3.5,
+      "edgeHeight": 0.8,
+      "frustumHeight": 2.4,
+      "columnHeight": 1.775,
+      "groundHeight": 0.5,
+      "buriedDepth": 4.5
+    },
+    "material": {
+      "concreteGrade": "C40",
+      "fc": 19.1,
+      "ft": 1.71,
+      "fck": 26.8,
+      "ftk": 2.39,
+      "ec": 32500.0,
+      "efc": 15000.0,
+      "density": 25,
+      "topCover": 60,
+      "bottomCover": 50,
+      "columnCover": 50,
+      "cushionThickness": 100
+    },
+    "soilLayers": [
+      {
+        "soilType": "粘性土",
+        "coverSoilDensity": 18.0,
+        "layerName": "粉质粘土层",
+        "thickness": 3.5,
+        "density": 19.5,
+        "compressionModulus": 12.0,
+        "cohesion": 25.0,
+        "frictionAngle": 18.0,
+        "m": 0.35,
+        "fak": 150.0,
+        "etaB": 1.0,
+        "etaD": 1.2,
+        "zetaA": 1.0
+      },
+      {
+        "soilType": "砂土",
+        "coverSoilDensity": 18.0,
+        "layerName": "中砂层",
+        "thickness": 4.0,
+        "density": 20.0,
+        "compressionModulus": 22.0,
+        "cohesion": 5.0,
+        "frictionAngle": 30.0,
+        "m": 0.30,
+        "fak": 200.0,
+        "etaB": 1.0,
+        "etaD": 1.0,
+        "zetaA": 1.0
+      },
+      {
+        "soilType": "岩石",
+        "coverSoilDensity": 18.0,
+        "layerName": "强风化岩层",
+        "thickness": 10.0,
+        "density": 22.0,
+        "compressionModulus": 50.0,
+        "cohesion": 100.0,
+        "frictionAngle": 35.0,
+        "m": 0.25,
+        "fak": 500.0,
+        "etaB": 1.0,
+        "etaD": 1.0,
+        "zetaA": 1.0
+      }
+    ],
+    "windTurbine": {
+      "weightFJ": 297.13,
+      "elevationFJ": 140.0,
+      "topHeight": 500,
+      "damp": 0.0025,
+      "dampH": 0.05,
+      "seismicIntensityValue": 7.0,
+      "seismicGroupValue": 1.0,
+      "soilTypeValue": 2.0
+    },
+    "towerDrums": [
+      {
+        "length": 20.0,
+        "bottomOuterDiameter": 5.36,
+        "topOuterDiameter": 5.36,
+        "wallThickness": 0.03,
+        "materialName": "Q355"
+      },
+      {
+        "length": 19.24,
+        "bottomOuterDiameter": 5.36,
+        "topOuterDiameter": 5.36,
+        "wallThickness": 0.03,
+        "materialName": "Q355"
+      },
+      {
+        "length": 23.48,
+        "bottomOuterDiameter": 5.36,
+        "topOuterDiameter": 4.96,
+        "wallThickness": 0.03,
+        "materialName": "Q355"
+      },
+      {
+        "length": 24.64,
+        "bottomOuterDiameter": 4.96,
+        "topOuterDiameter": 4.56,
+        "wallThickness": 0.03,
+        "materialName": "Q355"
+      },
+      {
+        "length": 24.64,
+        "bottomOuterDiameter": 4.56,
+        "topOuterDiameter": 4.56,
+        "wallThickness": 0.03,
+        "materialName": "Q355"
+      },
+      {
+        "length": 25,
+        "bottomOuterDiameter": 4.56,
+        "topOuterDiameter": 4.14,
+        "wallThickness": 0.03,
+        "materialName": "Q355"
+      }
+    ],
+    "turbineLoads": {
+      "normal": {
+        "Fr": 1081.95,
+        "Fv": 0.0,
+        "Fz": 6716.63,
+        "Mx": 230746.8,
+        "My": 150000.0,
+        "Mz": 19253.415
+      },
+      "extreme": {
+        "Fr": 2200.0,
+        "Fv": 2400.0,
+        "Fz": 3200.0,
+        "Mx": 350000.0,
+        "My": 220000.0,
+        "Mz": 28000.0
+      },
+      "fatigueUpper": {
+        "Fr": 1800.0,
+        "Fv": 1900.0,
+        "Fz": 3100.0,
+        "Mx": 280000.0,
+        "My": 180000.0,
+        "Mz": 22000.0
+      },
+      "fatigueLower": {
+        "Fr": 800.0,
+        "Fv": 900.0,
+        "Fz": 2500.0,
+        "Mx": 150000.0,
+        "My": 100000.0,
+        "Mz": 12000.0
+      }
+    },
+    "designParameters": {
+      "safetyLevel": "二级",
+      "importanceFactor": 1.0,
+      "connectionType": "法兰连接",
+      "turbineCapacity": 3.0,
+      "hubHeight": 140.0,
+      "coverSoilDensity": 18.0,
+      "waterDepth": 2.5
+    },
+    "baseParameters": {
+      "dynamicCompressionModulus": 150.0,
+      "poissonRatio": 0.25
+    },
+    "stiffnessRequirements": {
+      "requiredRotationalStiffness": 100000000000.0,
+      "requiredHorizontalStiffness": 1000000000.0
+    }
+  }

@@ -1,0 +1,11 @@
+*.log
+*.uml
+*.pyc
+__pycache__/
+.env
+.DS_Store
+.idea/
+.vscode/
+.pytest_cache/
+.coverage
+.coverage.*
